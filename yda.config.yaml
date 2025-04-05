@@ -1,0 +1,60 @@
+$projectBuilding:
+
+  $markupProcessing:
+
+    $common:
+
+      $buildingModeDependent:
+
+        $localDevelopment:
+
+          $mustResolveResourceReferencesToRelativePaths: true
+
+    entryPointsGroups:
+
+      Main:
+
+        singleEntryPointSourceFileRelativePath: 01-Source/index.pug
+
+        buildingModeDependent:
+          LOCAL_DEVELOPMENT:
+            outputTopDirectoryRelativePath: 02-Build
+
+  $stylesProcessing:
+
+    entryPointsGroups:
+
+      Main:
+
+        singleEntryPointSourceFileRelativePath: 01-Source/index.styl
+
+        buildingModeDependent:
+          LOCAL_DEVELOPMENT:
+            outputTopDirectoryRelativePath: 02-Build
+
+  ECMA_ScriptLogicProcessing:
+
+    entryPointsGroups:
+
+      Main:
+
+        singleEntryPointSourceFileRelativePath: 01-Source/index.ts
+
+        targetRuntime:
+          type: BROWSER
+
+        buildingModeDependent:
+          LOCAL_DEVELOPMENT:
+            outputTopDirectoryRelativePath: 02-Build
+
+  browserLiveReloading:
+
+    setups:
+
+      StaticPreview:
+
+        localServer:
+
+          rootDirectoryRelativePath: 02-Build
+
+        openInBrowsers: chrome

@@ -1,0 +1,9 @@
+02-Build/
+.yda/
+
+node_modules/
+
+**/.DS_Store
+
+.idea
+.vs
