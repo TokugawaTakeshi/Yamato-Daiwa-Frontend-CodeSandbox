@@ -1,18 +1,9 @@
 {
 
   "compilerOptions": {
-
-    "target": "ESNext",
+    "target": "es2023",
     "module": "ESNext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-
-    "strict": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
-
+    "moduleResolution": "bundler"
   }
 
 }

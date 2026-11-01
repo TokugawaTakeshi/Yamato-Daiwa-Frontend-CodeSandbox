@@ -6,55 +6,63 @@ $projectBuilding:
 
       $buildingModeDependent:
 
-        $localDevelopment:
+        $localDevelopment: { $mustResolveResourcesPointersToRelativePaths: true }
 
-          $mustResolveResourceReferencesToRelativePaths: true
 
-    entryPointsGroups:
+    $linting:
+
+      $linting: { $disable: true }
+
+    $entryPointsGroups:
 
       Main:
 
-        singleEntryPointSourceFileRelativePath: 01-Source/index.pug
+        $singleEntryPointSourceFileRelativePath: src/index.pug
 
-        buildingModeDependent:
-          LOCAL_DEVELOPMENT:
-            outputTopDirectoryRelativePath: 02-Build
+        $HTML_Validation: { $disable: true }
+        $accessibilityInspection: { $disable: true }
+
+        $buildingModeDependent:
+          $localDevelopment:
+            $outputTopDirectoryRelativePath: build
 
   $stylesProcessing:
 
-    entryPointsGroups:
+    $entryPointsGroups:
 
       Main:
 
-        singleEntryPointSourceFileRelativePath: 01-Source/index.styl
+        $singleEntryPointSourceFileRelativePath: src/index.styl
 
-        buildingModeDependent:
-          LOCAL_DEVELOPMENT:
-            outputTopDirectoryRelativePath: 02-Build
+        $buildingModeDependent:
+          $localDevelopment:
+            $outputTopDirectoryRelativePath: build
 
-  ECMA_ScriptLogicProcessing:
+  $ECMA_ScriptLogicProcessing:
 
-    entryPointsGroups:
+    $linting: { $disable: true }
+
+    $entryPointsGroups:
 
       Main:
 
-        singleEntryPointSourceFileRelativePath: 01-Source/index.ts
+        $singleEntryPointSourceFileRelativePath: src/index.ts
 
-        targetRuntime:
-          type: BROWSER
+        $targetRuntime:
+          $type: BROWSER
 
-        buildingModeDependent:
-          LOCAL_DEVELOPMENT:
-            outputTopDirectoryRelativePath: 02-Build
+        $buildingModeDependent:
+          $localDevelopment:
+            $outputTopDirectoryRelativePath: build
 
-  browserLiveReloading:
+  $browserLiveReloading:
 
-    setups:
+    $setups:
 
       StaticPreview:
 
-        localServer:
+        $localServer:
 
-          rootDirectoryRelativePath: 02-Build
+          $rootDirectoryRelativePath: build
 
         openInBrowsers: chrome
